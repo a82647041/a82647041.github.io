@@ -86,15 +86,15 @@
 <meta property="og:site_name" content="Hemingway">
 <meta property="og:description" content="线程数和效率CPU 密集型任务​    ，就是占用很大CPU资源的任务，这很简单，有多少个核就创建多少个线程，把CPU使用率拉满，多线程在牛逼也不能脱离CPU牛逼吧？可以理解成每个线程都占用一个核心。如果线程数量比核心数大了，则还要切换上下文线程，造成额外的开销，得不偿失。（先到这里了，再深究就设计操作系统及跟底层的知识了）  IO密集型任务​    顾名思义就是，IO操作频繁的任务。对于 IO">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/1.jpg">
-<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/2.jpge">
-<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/3.jpg">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/1.jpg">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/2.jpge">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/3.jpg">
 <meta property="article:published_time" content="2021-08-24T08:59:17.000Z">
-<meta property="article:modified_time" content="2021-08-24T09:05:58.660Z">
+<meta property="article:modified_time" content="2021-08-24T09:34:52.628Z">
 <meta property="article:author" content="Hemingway">
 <meta property="article:tag" content="多线程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/1.jpg">
+<meta name="twitter:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/1.jpg">
 
 
 
@@ -335,19 +335,19 @@
 
       
         <h3 id="线程数和效率"><a href="#线程数和效率" class="headerlink" title="线程数和效率"></a>线程数和效率</h3><h4 id="CPU-密集型任务"><a href="#CPU-密集型任务" class="headerlink" title="CPU 密集型任务"></a><strong>CPU 密集型任务</strong></h4><p>​    ，就是占用很大<code>CPU</code>资源的任务，这很简单，<strong>有多少个核就创建多少个线程</strong>，把CPU使用率拉满，多线程在牛逼也不能脱离CPU牛逼吧？可以理解成每个线程都占用一个核心。如果线程数量比核心数大了，则还要切换上下文线程，造成额外的开销，得不偿失。（先到这里了，再深究就设计操作系统及跟底层的知识了）</p>
-<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\1.jpg" alt="8核的CPU密集型任务 "></p>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/1.jpg" alt="8核的CPU密集型任务 "></p>
 <h4 id="IO密集型任务"><a href="#IO密集型任务" class="headerlink" title="IO密集型任务"></a>IO密集型任务</h4><p>​    顾名思义就是，IO操作频繁的任务。<strong>对于 IO 密集型任务最大线程数一般会大于 CPU 核心数很多倍</strong>，因为 IO 读写速度相比于 CPU 的速度而言是比较慢的，如果我们设置过少的线程数，就可能导致 CPU 资源的浪费。而如果我们设置更多的线程数，那么当一部分线程正在等待 IO 的时候，它们此时并不需要 CPU 来计算，那么另外的线程便可以利用 CPU 去执行其他的任务，互不影响，这样的话在任务队列中等待的任务就会减少，可以更好地利用资源。</p>
 <p>对于 IO 密集型计算场景，最佳的线程数是与程序中 CPU 计算和 IO 操作的耗时比相关的，《Java并发编程实战》的作者 Brain Goetz 推荐的计算方法如下：</p>
 <blockquote>
 <p>线程数 = CPU 核心数 * (1 + IO 耗时/ CPU 耗时)</p>
 </blockquote>
-<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\2.jpge" alt="线程之间任务切换"></p>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/2.jpge" alt="线程之间任务切换"></p>
 <p>还有一派的计算方式是《Java虚拟机并发编程》中提出的：</p>
 <blockquote>
 <p>线程数 = CPU 核心数 / (1 - 阻塞系数)</p>
 </blockquote>
 <p>其中计算密集型阻塞系数为 0，IO 密集型阻塞系数接近 1，一般认为在 0.8 ~ 0.9 之间。比如 8 核 CPU，按照公式就是 2 / ( 1 - 0.9 ) = 20 个线程数</p>
-<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\3.jpg" alt="8核IO密集型测试"></p>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/3.jpg" alt="8核IO密集型测试"></p>
 <p>上图是 IO 密集型任务的一个测试，是在双核处理器上开不同的线程数（从 1 到 40）来测试对程序性能的影响，可以看到线程池数量达到 20 之后，曲线逐渐水平，说明开再多的线程对程序的性能提升也毫无帮助。</p>
 <blockquote>
 <p>描述图片的格式：（说明这个图表） + （关键现象） + （总结）</p>
