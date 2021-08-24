@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="多线程," />
 
 
 
@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="云顶之弈手游11.16复生刺客怎么玩？复生六刺是云顶之弈在11.16版本削弱了恶魔小炮后，最适合上分的几套物理阵容体系之一，且对版本热门的大眼阵容有一定克制能力，接下来就让我们一起了解一下吧。  云顶之弈手游11.16复生刺客阵容 一、阵容搭配 1.棋子 雷霆咆哮—沃利贝尔（5）、翠神—艾翁（4）、血港鬼影—派克（2）、破败之王—佛耶戈（5）、仙灵女巫—璐璐（3）、永恒梦魇—魔腾（3）、皎月女神—">
+<meta name="description" content="线程数和效率CPU 密集型任务​    ，就是占用很大CPU资源的任务，这很简单，有多少个核就创建多少个线程，把CPU使用率拉满，多线程在牛逼也不能脱离CPU牛逼吧？可以理解成每个线程都占用一个核心。如果线程数量比核心数大了，则还要切换上下文线程，造成额外的开销，得不偿失。（先到这里了，再深究就设计操作系统及跟底层的知识了）  IO密集型任务​    顾名思义就是，IO操作频繁的任务。对于 IO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复生刺怎么玩">
-<meta property="og:url" content="http://example.com/2021/08/23/%E5%A4%8D%E7%94%9F%E5%88%BA%E6%80%8E%E4%B9%88%E7%8E%A9/index.html">
+<meta property="og:title" content="线程数设置多少更合适？">
+<meta property="og:url" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Hemingway">
-<meta property="og:description" content="云顶之弈手游11.16复生刺客怎么玩？复生六刺是云顶之弈在11.16版本削弱了恶魔小炮后，最适合上分的几套物理阵容体系之一，且对版本热门的大眼阵容有一定克制能力，接下来就让我们一起了解一下吧。  云顶之弈手游11.16复生刺客阵容 一、阵容搭配 1.棋子 雷霆咆哮—沃利贝尔（5）、翠神—艾翁（4）、血港鬼影—派克（2）、破败之王—佛耶戈（5）、仙灵女巫—璐璐（3）、永恒梦魇—魔腾（3）、皎月女神—">
+<meta property="og:description" content="线程数和效率CPU 密集型任务​    ，就是占用很大CPU资源的任务，这很简单，有多少个核就创建多少个线程，把CPU使用率拉满，多线程在牛逼也不能脱离CPU牛逼吧？可以理解成每个线程都占用一个核心。如果线程数量比核心数大了，则还要切换上下文线程，造成额外的开销，得不偿失。（先到这里了，再深究就设计操作系统及跟底层的知识了）  IO密集型任务​    顾名思义就是，IO操作频繁的任务。对于 IO">
 <meta property="og:locale">
-<meta property="og:image" content="https://inews.gtimg.com/newsapp_bt/0/13910488612/641">
-<meta property="og:image" content="https://inews.gtimg.com/newsapp_bt/0/13910488613/641">
-<meta property="og:image" content="https://inews.gtimg.com/newsapp_bt/0/13910488614/641">
-<meta property="og:image" content="https://inews.gtimg.com/newsapp_bt/0/13910488625/641">
-<meta property="article:published_time" content="2021-08-23T09:08:04.000Z">
-<meta property="article:modified_time" content="2021-08-23T09:10:13.044Z">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/1.jpg">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/2.jpge">
+<meta property="og:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/3.jpg">
+<meta property="article:published_time" content="2021-08-24T08:59:17.000Z">
+<meta property="article:modified_time" content="2021-08-24T09:05:58.660Z">
 <meta property="article:author" content="Hemingway">
+<meta property="article:tag" content="多线程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_bt/0/13910488612/641">
+<meta name="twitter:image" content="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy/dev/web/blog/source_posts/线程数设置多少更合适？/1.jpg">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/08/23/复生刺怎么玩/"/>
+  <link rel="canonical" href="http://example.com/2021/08/24/线程数设置多少更合适？/"/>
 
 
 
 
 
-  <title>复生刺怎么玩 | Hemingway</title>
+  <title>线程数设置多少更合适？ | Hemingway</title>
   
 
 
@@ -165,7 +165,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ssssssssssssssssss</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/23/%E5%A4%8D%E7%94%9F%E5%88%BA%E6%80%8E%E4%B9%88%E7%8E%A9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">复生刺怎么玩</h1>
+          <h1 class="post-title" itemprop="name headline">线程数设置多少更合适？</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-23T17:08:04+08:00">
-                2021-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-24T16:59:17+08:00">
+                2021-08-24
               </time>
             
 
@@ -334,45 +334,24 @@
       
 
       
-        <p>云顶之弈手游11.16复生刺客怎么玩？复生六刺是云顶之弈在11.16版本削弱了恶魔小炮后，最适合上分的几套物理阵容体系之一，且对版本热门的大眼阵容有一定克制能力，接下来就让我们一起了解一下吧。</p>
-<p><img src="https://inews.gtimg.com/newsapp_bt/0/13910488612/641" alt="img"></p>
-<p>云顶之弈手游11.16复生刺客阵容</p>
-<p><strong>一、阵容搭配</strong></p>
-<p><strong>1.棋子</strong></p>
-<p>雷霆咆哮—沃利贝尔（5）、翠神—艾翁（4）、血港鬼影—派克（2）、破败之王—佛耶戈（5）、仙灵女巫—璐璐（3）、永恒梦魇—魔腾（3）、皎月女神—黛安娜（4）、远古恐惧—费德提克（4）</p>
-<p><strong>2.羁绊</strong></p>
-<p>4复生亡魂 4刺客 2秘术</p>
-<p><strong>3.站位</strong></p>
-<p><img src="https://inews.gtimg.com/newsapp_bt/0/13910488613/641" alt="img"></p>
-<p><strong>二、版本更新</strong></p>
-<p><strong>11.16刺客改动：****永恒梦魇—魔腾</strong></p>
-<p>第三次斩击伤害从全等级125%攻击力 &gt;&gt;&gt; 70%攻击力+70/85/110额外物理伤害</p>
-<p>被动治疗量从90%/95%/100% &gt;&gt;&gt; 全等级100%</p>
-<p>单体攻速加成从30/35/40% &gt;&gt;&gt; 全等级35%</p>
-<p><img src="https://inews.gtimg.com/newsapp_bt/0/13910488614/641" alt="img"></p>
-<p>可以看出11.16改动削弱了一点梦魇的技能伤害，如果再出杀人剑的话收益就不大了，同时加强了梦魇前期的治疗量和单体攻速，这就意味着过渡的作战能力增强。</p>
-<p>所以为了适应版本出装思路就要转变，梦魇现在更需要的是清场能力和容错，毕竟刺客的机制摆在那里，伤害只要足够杀掉C位就等于游戏胜利。</p>
-<p><strong>三、装备搭配</strong></p>
-<p><strong>1.永恒梦魇—魔腾</strong></p>
-<p><strong>疾射火炮（反曲之弓+反曲之弓）</strong></p>
-<p><strong>卢安娜的飓风（反曲之弓+负极斗篷）</strong></p>
-<p><strong>无尽之刃（暴风大剑+拳套）</strong></p>
-<p>主C梦魇，其实现在梦魇的火炮很重要，第一是为了防止梦魇打假赛，第二是为了加启动和容错（现在火炮额外提供40%攻速），飓风增加清场能力，特效同时可以暴击；最后一件无尽，刺客的必备，保证高额的暴击伤害。<strong>反****正火炮无尽必备，</strong>飓风的替代装备根据游戏环境选择轻语或羊刀。</p>
-<p><strong>光明装备：光明火炮&gt;光明飓风&gt;光明无尽</strong></p>
-<p>光明火炮提供80%的额外攻速可以完美代替黑暗版本的黑旗子！</p>
-<p><strong>2.其他</strong></p>
-<p>皎月的冰心老生常谈，但如果没有梦魇的光明装备也可以拿光明冰心，皎月开局很快就能打出控制，另外就是出伏击越多越好。</p>
-<p>佛耶戈有条件就给<strong>蓝BUFF复活甲，</strong>大后期其实很看佛耶戈的发挥！</p>
-<p><strong>三、运营攻略</strong></p>
-<p><strong>1.开局抢</strong>：</p>
-<p>优先做梦魇的装备，有铲子必须拿，刺转对于刺客体系的提升太大了。开局走连败，把经济养好，<strong>如果也有走连败的玩家，一定要空城，</strong>2-3开打的时候保证利息的同时随便留几张打工牌，第二波选秀完拿到火炮，如果有亚索或锐雯可以上场打工，但连败不能断，这套阵容最重要的思路就是不吃低保不罢休。</p>
-<p>但如果锐雯来得比较多的话也可以放弃刺客，前期保证掉血不太多就用酒桶+螳螂+梦魇+瑟提组成<strong>2斗2刺打工，</strong>或者哨兵神盾过渡。</p>
-<p><strong>2.中后期运营</strong></p>
-<p>需要注意的是，装备不够好的话打石头人前尽量不要断连败，只用卡着利息上人口，3-2上6什么强就上什么，有梦魇最佳，3-5上7，还是卡利息小D提提场上质量，<strong>4-1大D启动，有佛耶戈狗熊直接拿，目的搜出2星梦魇和4刺客就停手，</strong>这时候就会锁血转连胜，要记住玩刺客其实就是用血量换来的经济，提前上7超越其他玩家的质量！</p>
-<p><img src="https://inews.gtimg.com/newsapp_bt/0/13910488625/641" alt="img"></p>
-<p>5-1左右卡利息搜出3星梦魇就可以直接上8，如果没有出就得在7人口继续D牌，8人口开出4刺客4复生2秘术阵容就完美成型，如果有刺转就给稻草人，下掉双秘术开6刺！</p>
-<p>梦魇的玩法就是连败转连胜，没有吃到低保前都不用着急，质量上去了任何阵容都可以与之一战，但玩好刺客最重要的就是站位，梦魇和皎月尽量站一起，后期需要时刻关注其他玩家的站位及时做出调整！</p>
-<p>以上就是今天给小伙伴们带来的云顶之弈11.16复生六刺梦魇的阵容推荐，这套阵容是11.16b中胜率最高的阵容体系之一，小伙伴们赶紧去尝试一下吧！</p>
+        <h3 id="线程数和效率"><a href="#线程数和效率" class="headerlink" title="线程数和效率"></a>线程数和效率</h3><h4 id="CPU-密集型任务"><a href="#CPU-密集型任务" class="headerlink" title="CPU 密集型任务"></a><strong>CPU 密集型任务</strong></h4><p>​    ，就是占用很大<code>CPU</code>资源的任务，这很简单，<strong>有多少个核就创建多少个线程</strong>，把CPU使用率拉满，多线程在牛逼也不能脱离CPU牛逼吧？可以理解成每个线程都占用一个核心。如果线程数量比核心数大了，则还要切换上下文线程，造成额外的开销，得不偿失。（先到这里了，再深究就设计操作系统及跟底层的知识了）</p>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\1.jpg" alt="8核的CPU密集型任务 "></p>
+<h4 id="IO密集型任务"><a href="#IO密集型任务" class="headerlink" title="IO密集型任务"></a>IO密集型任务</h4><p>​    顾名思义就是，IO操作频繁的任务。<strong>对于 IO 密集型任务最大线程数一般会大于 CPU 核心数很多倍</strong>，因为 IO 读写速度相比于 CPU 的速度而言是比较慢的，如果我们设置过少的线程数，就可能导致 CPU 资源的浪费。而如果我们设置更多的线程数，那么当一部分线程正在等待 IO 的时候，它们此时并不需要 CPU 来计算，那么另外的线程便可以利用 CPU 去执行其他的任务，互不影响，这样的话在任务队列中等待的任务就会减少，可以更好地利用资源。</p>
+<p>对于 IO 密集型计算场景，最佳的线程数是与程序中 CPU 计算和 IO 操作的耗时比相关的，《Java并发编程实战》的作者 Brain Goetz 推荐的计算方法如下：</p>
+<blockquote>
+<p>线程数 = CPU 核心数 * (1 + IO 耗时/ CPU 耗时)</p>
+</blockquote>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\2.jpge" alt="线程之间任务切换"></p>
+<p>还有一派的计算方式是《Java虚拟机并发编程》中提出的：</p>
+<blockquote>
+<p>线程数 = CPU 核心数 / (1 - 阻塞系数)</p>
+</blockquote>
+<p>其中计算密集型阻塞系数为 0，IO 密集型阻塞系数接近 1，一般认为在 0.8 ~ 0.9 之间。比如 8 核 CPU，按照公式就是 2 / ( 1 - 0.9 ) = 20 个线程数</p>
+<p><img src="/2021/08/24/%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E6%9B%B4%E5%90%88%E9%80%82%EF%BC%9F/hmy\dev\web\blog\source_posts\线程数设置多少更合适？\3.jpg" alt="8核IO密集型测试"></p>
+<p>上图是 IO 密集型任务的一个测试，是在双核处理器上开不同的线程数（从 1 到 40）来测试对程序性能的影响，可以看到线程池数量达到 20 之后，曲线逐渐水平，说明开再多的线程对程序的性能提升也毫无帮助。</p>
+<blockquote>
+<p>描述图片的格式：（说明这个图表） + （关键现象） + （总结）</p>
+</blockquote>
 
       
     </div>
@@ -388,6 +367,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag"># 多线程</a>
+          
+        </div>
+      
 
       
       
@@ -397,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/08/23/%E5%89%8D%E8%A8%80/" rel="next" title="前言">
-                <i class="fa fa-chevron-left"></i> 前言
+              <a href="/2021/08/24/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" rel="next" title="多线程-生产者消费者">
+                <i class="fa fa-chevron-left"></i> 多线程-生产者消费者
               </a>
             
           </div>
@@ -457,8 +442,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -473,12 +467,21 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -486,7 +489,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -509,6 +512,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%95%B0%E5%92%8C%E6%95%88%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">线程数和效率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-%E5%AF%86%E9%9B%86%E5%9E%8B%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">CPU 密集型任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO%E5%AF%86%E9%9B%86%E5%9E%8B%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.2.</span> <span class="nav-text">IO密集型任务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

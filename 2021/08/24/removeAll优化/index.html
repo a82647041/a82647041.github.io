@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="其他," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="前言搭建个人博客是我毕业的时候就想做的事情，但是基于当时的认知，和技术水平，第一时间想到的是做一个服务端，跟一个网页端。想想就会花费很多时间和精力，所以一直搁置到现在。直到我碰到了hexo，真的是一键搭建好博客，提供了博客的核心功能，不需要再去实现琐碎的细节，由git托管，远程部署，轻松添加域名等等一系列优点！ 目的搭建个人博客的目的也非常直接。  提高自己的写作能力 及时对学到的知识做记录归档">
+<meta name="description" content="应用场景今天有个需求需要涉及到集合的运算。需要判断计算A集合和B集合的差集，直接写出如下代码 1A.removeAll(B)  这样做是可以达到效果的，但是数据量有1000多条的时候就已经出现了明显的卡顿。 解决方案空间换时间的方法，根据HashSet在add成功之后返回true的特性，只要add返回true说明source存在destination没有的元素，然后把这个元素添加到result，从">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前言">
-<meta property="og:url" content="http://example.com/2021/08/23/%E5%89%8D%E8%A8%80/index.html">
+<meta property="og:title" content="removeAll优化">
+<meta property="og:url" content="http://example.com/2021/08/24/removeAll%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hemingway">
-<meta property="og:description" content="前言搭建个人博客是我毕业的时候就想做的事情，但是基于当时的认知，和技术水平，第一时间想到的是做一个服务端，跟一个网页端。想想就会花费很多时间和精力，所以一直搁置到现在。直到我碰到了hexo，真的是一键搭建好博客，提供了博客的核心功能，不需要再去实现琐碎的细节，由git托管，远程部署，轻松添加域名等等一系列优点！ 目的搭建个人博客的目的也非常直接。  提高自己的写作能力 及时对学到的知识做记录归档">
+<meta property="og:description" content="应用场景今天有个需求需要涉及到集合的运算。需要判断计算A集合和B集合的差集，直接写出如下代码 1A.removeAll(B)  这样做是可以达到效果的，但是数据量有1000多条的时候就已经出现了明显的卡顿。 解决方案空间换时间的方法，根据HashSet在add成功之后返回true的特性，只要add返回true说明source存在destination没有的元素，然后把这个元素添加到result，从">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-08-23T08:52:15.000Z">
-<meta property="article:modified_time" content="2021-08-24T03:18:35.374Z">
+<meta property="article:published_time" content="2021-08-24T05:17:07.000Z">
+<meta property="article:modified_time" content="2021-08-24T07:24:15.474Z">
 <meta property="article:author" content="Hemingway">
-<meta property="article:tag" content="其他">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/08/23/前言/"/>
+  <link rel="canonical" href="http://example.com/2021/08/24/removeAll优化/"/>
 
 
 
 
 
-  <title>前言 | Hemingway</title>
+  <title>removeAll优化 | Hemingway</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/23/%E5%89%8D%E8%A8%80/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/removeAll%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前言</h1>
+          <h1 class="post-title" itemprop="name headline">removeAll优化</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-23T16:52:15+08:00">
-                2021-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-24T13:17:07+08:00">
+                2021-08-24
               </time>
             
 
@@ -302,28 +302,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -352,15 +330,13 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>搭建个人博客是我毕业的时候就想做的事情，但是基于当时的认知，和技术水平，第一时间想到的是做一个服务端，跟一个网页端。想想就会花费很多时间和精力，所以一直搁置到现在。直到我碰到了<code>hexo</code>，真的是一键搭建好博客，提供了博客的核心功能，不需要再去实现琐碎的细节，由git托管，远程部署，轻松添加域名等等一系列优点！</p>
-<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>搭建个人博客的目的也非常直接。</p>
-<ul>
-<li>提高自己的写作能力</li>
-<li>及时对学到的知识做记录归档</li>
-<li>分享自己的知识</li>
-<li>满足自己的表达欲望</li>
-<li>以及为了一点点的私立</li>
-</ul>
+        <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>今天有个需求需要涉及到集合的运算。需要判断计算<code>A集合</code>和<code>B集合</code>的差集，直接写出如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.removeAll(B)</span><br></pre></td></tr></table></figure>
+
+<p>这样做是可以达到效果的，但是数据量有1000多条的时候就已经出现了明显的卡顿。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>空间换时间的方法，根据<code>HashSet</code>在<code>add</code>成功之后返回<code>true</code>的特性，只要<code>add</code>返回<code>true</code>说明<code>source</code>存在<code>destination</code>没有的元素，然后把这个元素添加到<code>result</code>，从而达到了<code>result</code>的结果都是<code>source</code>存在<code>destination</code>没有，实现了<code>A集合</code>-<code>B集合</code>。最重要的是效率快了好多！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a集合 - b集合</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">removeAll_02</span><span class="params">(List&lt;String&gt; a, List&lt;String&gt; b)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; result = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Integer&gt; sourceMap = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line">    <span class="keyword">for</span> (String t : a) &#123;</span><br><span class="line">        <span class="keyword">if</span> (sourceMap.containsKey(t)) &#123;</span><br><span class="line">            sourceMap.put(t, sourceMap.get(t) + <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sourceMap.put(t, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Set&lt;String&gt; all = <span class="keyword">new</span> HashSet&lt;String&gt;(b);</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : sourceMap.entrySet()) &#123;</span><br><span class="line">        String key = entry.getKey();</span><br><span class="line">        Integer value = entry.getValue();</span><br><span class="line">        <span class="keyword">if</span> (all.add(key)) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value; i++) &#123;</span><br><span class="line">                result.add(key);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -378,7 +354,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%85%B6%E4%BB%96/" rel="tag"># 其他</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -391,14 +367,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2021/08/23/%E5%89%8D%E8%A8%80/" rel="next" title="前言">
+                <i class="fa fa-chevron-left"></i> 前言
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/08/24/removeAll%E4%BC%98%E5%8C%96/" rel="prev" title="removeAll优化">
-                removeAll优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/08/24/MyBait%E7%9A%84Update-Insert%E4%BC%98%E5%8C%96/" rel="prev" title="MyBait的Update/Insert优化">
+                MyBait的Update/Insert优化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -531,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">目的</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>

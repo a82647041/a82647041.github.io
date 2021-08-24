@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,数据库," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="直到这一刻微笑着说话为止，我至少留下了一公升眼泪">
+<meta name="description" content="应用场景​    今天用mybatis更新一百多万条数据，用的是Hana数据库。在这里我偷了个懒，想把一百多万条数据一条一条的插入到数据库中。因为之前对批量更新，插入很不屑，觉得并没有什么卵用，而且语法有特别繁杂，再者我不清楚Hana是否支持批量更新。 ​    结果是显而易见的，一百多万次的update语句，光是网络传输的延时就已经非常可怕了。在这里，我还需要弄清楚一条sql语句在各个阶段的耗时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hemingway">
-<meta property="og:url" content="http://example.com/2021/08/23/hello-world/index.html">
+<meta property="og:title" content="MyBait的Update&#x2F;Insert优化">
+<meta property="og:url" content="http://example.com/2021/08/24/MyBait%E7%9A%84Update-Insert%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hemingway">
-<meta property="og:description" content="直到这一刻微笑着说话为止，我至少留下了一公升眼泪">
+<meta property="og:description" content="应用场景​    今天用mybatis更新一百多万条数据，用的是Hana数据库。在这里我偷了个懒，想把一百多万条数据一条一条的插入到数据库中。因为之前对批量更新，插入很不屑，觉得并没有什么卵用，而且语法有特别繁杂，再者我不清楚Hana是否支持批量更新。 ​    结果是显而易见的，一百多万次的update语句，光是网络传输的延时就已经非常可怕了。在这里，我还需要弄清楚一条sql语句在各个阶段的耗时">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-08-23T07:21:28.041Z">
-<meta property="article:modified_time" content="2021-08-23T07:21:28.046Z">
+<meta property="article:published_time" content="2021-08-24T06:45:08.000Z">
+<meta property="article:modified_time" content="2021-08-24T07:18:38.876Z">
 <meta property="article:author" content="Hemingway">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/08/23/hello-world/"/>
+  <link rel="canonical" href="http://example.com/2021/08/24/MyBait的Update-Insert优化/"/>
 
 
 
 
 
-  <title> | Hemingway</title>
+  <title>MyBait的Update/Insert优化 | Hemingway</title>
   
 
 
@@ -160,7 +162,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ssssssssssssssssss</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -262,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/MyBait%E7%9A%84Update-Insert%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -279,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">MyBait的Update/Insert优化</h1>
         
 
         <div class="post-meta">
@@ -291,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-23T15:21:28+08:00">
-                2021-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-24T14:45:08+08:00">
+                2021-08-24
               </time>
             
 
@@ -329,7 +331,14 @@
       
 
       
-        
+        <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>​    今天用<code>mybatis</code>更新一百多万条数据，用的是<code>Hana</code>数据库。在这里我偷了个懒，想把一百多万条数据一条一条的插入到数据库中。因为之前对批量更新，插入很不屑，觉得并没有什么卵用，而且语法有特别繁杂，再者我不清楚<code>Hana</code>是否支持批量更新。</p>
+<p>​    结果是显而易见的，一百多万次的update语句，光是网络传输的延时就已经非常可怕了。在这里，我还需要弄清楚一条<code>sql</code>语句在各个阶段的耗时情况。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/aicro/p/3851434.html">MYSQL开发性能研究——批量插入的优化措施 - aicro - 博客园 (cnblogs.com)</a></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>​    先在网上搜到了<code>Hana</code>的批量更新的<code>sql</code>代码，下面的代码表示根据<code>&quot;$rowid$&quot;</code>去设置<code>id</code>的值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UPDATE CITY_WEATHER</span><br><span class="line"><span class="keyword">SET</span> id <span class="operator">=</span> <span class="keyword">CASE</span> &quot;$rowid$&quot;</span><br><span class="line">    <span class="keyword">when</span> <span class="number">1</span> <span class="keyword">then</span> <span class="number">10</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">2</span> <span class="keyword">then</span> <span class="number">20</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">3</span> <span class="keyword">then</span> <span class="number">30</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">4</span> <span class="keyword">then</span> <span class="number">40</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">5</span> <span class="keyword">then</span> <span class="number">50</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">6</span> <span class="keyword">then</span> <span class="number">60</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">WHERE</span> &quot;$rowid$&quot; <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>然后在用<code>mybatis</code>表示出来:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UPDATE CITY_WEATHER</span><br><span class="line"><span class="keyword">SET</span> id <span class="operator">=</span> <span class="keyword">CASE</span> &quot;$rowid$&quot;</span><br><span class="line"><span class="operator">&lt;</span>foreach collection<span class="operator">=</span>&quot;content.keys&quot; item<span class="operator">=</span>&quot;key&quot; <span class="keyword">open</span><span class="operator">=</span>&quot;&quot; <span class="keyword">close</span><span class="operator">=</span>&quot;&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="keyword">when</span> #&#123;key&#125; <span class="keyword">then</span> #&#123;content[$&#123;key&#125;]&#125;</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span>foreach<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">WHERE</span> &quot;$rowid$&quot; <span class="keyword">IN</span></span><br><span class="line"><span class="operator">&lt;</span>foreach item<span class="operator">=</span>&quot;key&quot; index<span class="operator">=</span>&quot;index&quot; collection<span class="operator">=</span>&quot;content.keys&quot;  <span class="keyword">open</span><span class="operator">=</span>&quot;(&quot; separator<span class="operator">=</span>&quot;,&quot; <span class="keyword">close</span><span class="operator">=</span>&quot;)&quot;<span class="operator">&gt;</span></span><br><span class="line">    #&#123;key&#125;</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span>foreach<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的代码我学习到了<code>mybatis</code>对<code>Map</code>参数的遍历处理。最值得主要的是一定一定得在<code>DAO</code>接口的参数中指定参数的名字！<code>@Params(&quot;content&quot;)</code></p>
+
       
     </div>
     
@@ -344,6 +353,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+        </div>
+      
 
       
       
@@ -353,14 +370,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2021/08/24/removeAll%E4%BC%98%E5%8C%96/" rel="next" title="removeAll优化">
+                <i class="fa fa-chevron-left"></i> removeAll优化
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/08/23/%E5%89%8D%E8%A8%80/" rel="prev" title="前言">
-                前言 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/08/24/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" rel="prev" title="多线程-生产者消费者">
+                多线程-生产者消费者 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -413,8 +434,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -429,12 +459,21 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -442,7 +481,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -465,6 +504,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
